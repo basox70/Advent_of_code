@@ -3,11 +3,10 @@
 
 import re 
 
-inputs = "2024/inputs/day_1.txt"
+inputs = "2024/inputs/day_01.txt"
 
 
 def parsing_data():
-    left, right = [], []
     pattern = r"^([\d]*)\s*([\d]*)"
     left, right = [], []
     with open(inputs, "r", encoding="UTF-8") as f:
