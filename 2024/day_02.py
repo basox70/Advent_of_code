@@ -18,37 +18,37 @@ def parsing_data() -> list[list]:
 def part_one(reports:list[list]):
     total_safe = 0
     for levels in reports:
-        print(f"{levels=} | {reports.index(levels)+1}/{len(reports)}")
+        # print(f"{levels=} | {reports.index(levels)+1}/{len(reports)}")
         differences = [levels[i] - levels[i + 1] for i in range(len(levels) - 1)]
-        print(f"{differences=}")
+        # print(f"{differences=}")
         if (max(differences) > 0 and min(differences) > 0) or (max(differences) < 0 and min(differences) < 0):
             abs_diff = [abs(i) for i in differences]
-            print(f"{abs_diff=}")
+            # print(f"{abs_diff=}")
             if (max(abs_diff) <= 3 and min(abs_diff) >= 1):
-                print("Safe!")
+                # print("Safe!")
                 total_safe += 1
         
-        print(f"levels {total_safe=}")
-        print("="*50)
+        # print(f"levels {total_safe=}")
+        # print("="*50)
 
-    print(f"{total_safe=}")
+    print(f"1_{total_safe=}")
     
-    print("="*50)
-    print("="*50)
-    print("="*50)
+    # print("="*50)
+    # print("="*50)
+    # print("="*50)
 
 def part_two(reports:list[list]):
     total_safe = 0
 
     def is_safe(levels) -> bool:
-        print(f"new_{levels=}")
+        # print(f"new_{levels=}")
         differences = [levels[i] - levels[i + 1] for i in range(len(levels) - 1)]
-        print(f"{differences=}")
+        # print(f"{differences=}")
         if (max(differences) > 0 and min(differences) > 0) or (max(differences) < 0 and min(differences) < 0):
             abs_diff = [abs(i) for i in differences]
-            print(f"{abs_diff=}")
+            # print(f"{abs_diff=}")
             if (max(abs_diff) <= 3 and min(abs_diff) >= 1):
-                print("Safe!")
+                # print("Safe!")
                 return True
         return False
         
@@ -56,15 +56,15 @@ def part_two(reports:list[list]):
         print(f"{levels=} | {reports.index(levels)+1}/{len(reports)}")
         if is_safe(levels):
             total_safe += 1
-            print(f"levels {total_safe=}")
+            # print(f"levels {total_safe=}")
             continue
         for i in range(len(levels)):
             new_levels = levels[:i] + levels[i+1:]
             if is_safe(new_levels):
                 total_safe += 1
 
-        print(f"levels {total_safe=}")
-        print("="*50)
+        # print(f"levels {total_safe=}")
+        # print("="*50)
 
     print(f"{total_safe=}")
 
@@ -94,12 +94,12 @@ def count_safe_suites(suites):
 def main():
     reports = parsing_data()
     part_one(reports)
-    part_two(reports)
+    # part_two(reports)
 
     results_with_removal = {tuple(suite): is_safe_with_one_removal(suite) for suite in reports}
     safe_count = count_safe_suites(reports)
-    print(f"{results_with_removal=}")
-    print(f"{safe_count=}")
+    # print(f"{results_with_removal=}")
+    print(f"2_{safe_count=}")
 
 
 
